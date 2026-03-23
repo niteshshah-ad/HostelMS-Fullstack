@@ -1,0 +1,118 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body[data-theme="dark"] {
+  background: #020817;
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] #root {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body[data-theme="dark"] img,
+body[data-theme="dark"] picture,
+body[data-theme="dark"] video,
+body[data-theme="dark"] canvas,
+body[data-theme="dark"] svg {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.click-wave-layer {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+}
+
+.click-wave {
+  animation: clickWaveRipple 0.8s ease-out forwards;
+  background:
+    radial-gradient(circle, rgba(20, 184, 166, 0.28) 0%, rgba(20, 184, 166, 0.16) 32%, rgba(20, 184, 166, 0.08) 48%, transparent 68%);
+  border: 2px solid rgba(20, 184, 166, 0.22);
+  border-radius: 999px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes clickWaveRipple {
+  0% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(0.15);
+  }
+
+  70% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.2);
+  }
+}
