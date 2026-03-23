@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
-import MachanLogo from "../MachanLogo";
-import ThemeToggle from "../ThemeToggle";
-import Sidebar from "../Sidebar";
-import HostelTable from "../HostelTable";
+import MachanLogo from "../components/MachanLogo";
+import ThemeToggle from "../components/ThemeToggle";
+import Sidebar from "../components/Sidebar";
+import HostelTable from "../components/HostelTable";
 import { API_BASE_URL, getStaticAssetUrl } from "../lib/api";
 import "../Styles/wardendashboard.css";
 
