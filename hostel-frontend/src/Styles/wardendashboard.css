@@ -1,0 +1,1458 @@
+.warden-dashboard {
+  --bg-dark: #0f172a;
+  --bg-deep: #132238;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-strong: #ffffff;
+  --line: rgba(148, 163, 184, 0.18);
+  --text: #172033;
+  --muted: #64748b;
+  --accent: #0f766e;
+  --accent-dark: #115e59;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --warm: #d97706;
+  --warm-soft: rgba(217, 119, 6, 0.12);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.12), transparent 26%),
+    linear-gradient(180deg, #edf5f7 0%, #e9f1f5 45%, #e4edf0 100%);
+  color: var(--text);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 290px minmax(0, 1fr);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.warden-sidebar,
+.warden-hero,
+.warden-panel,
+.warden-form-card {
+  backdrop-filter: blur(14px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.warden-sidebar {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(16, 38, 62, 0.96));
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 48px);
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+
+.warden-sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.warden-sidebar-brand h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.05;
+  margin: 8px 0 10px;
+}
+
+.warden-sidebar-brand p {
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.warden-sidebar-highlight {
+  background: linear-gradient(180deg, rgba(20, 184, 166, 0.12), rgba(59, 130, 246, 0.12));
+  border: 1px solid rgba(141, 241, 222, 0.16);
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.warden-sidebar-mini {
+  color: #c8fff3;
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.warden-sidebar-highlight h3 {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+.warden-sidebar-highlight p {
+  color: rgba(226, 232, 240, 0.76);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.warden-sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.warden-sidebar-tags span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: #e6fff9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 10px;
+}
+
+.warden-sidebar-story {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(141, 241, 222, 0.06));
+  border: 1px solid rgba(141, 241, 222, 0.1);
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.warden-sidebar-metrics {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.warden-sidebar-metrics div {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 12px;
+  text-align: center;
+}
+
+.warden-sidebar-metrics strong,
+.warden-sidebar-metrics span {
+  display: block;
+}
+
+.warden-sidebar-metrics strong {
+  color: #f8fafc;
+  font-size: 1.05rem;
+}
+
+.warden-sidebar-metrics span {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.warden-sidebar-story-card,
+.warden-sidebar-quote {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.warden-sidebar-story-card strong,
+.warden-sidebar-progress strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.warden-sidebar-story-card p,
+.warden-sidebar-quote p,
+.warden-sidebar-progress span {
+  color: rgba(226, 232, 240, 0.76);
+}
+
+.warden-sidebar-story-card p,
+.warden-sidebar-quote p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 8px 0 0;
+}
+
+.warden-sidebar-progress {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.warden-sidebar-progress div:first-child {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.warden-sidebar-progress-bar {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.warden-sidebar-progress-bar span {
+  background: linear-gradient(90deg, #2dd4bf 0%, #60a5fa 100%);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  width: 72%;
+}
+
+.warden-sidebar-kicker,
+.warden-eyebrow,
+.warden-section-kicker {
+  color: #8df1de;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.warden-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.warden-sidebar-btn {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  color: #e2e8f0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  text-align: left;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.warden-sidebar-btn strong,
+.warden-sidebar-btn span {
+  font: inherit;
+}
+
+.warden-sidebar-btn strong {
+  font-weight: 600;
+}
+
+.warden-sidebar-btn span {
+  color: rgba(226, 232, 240, 0.68);
+  font-size: 0.92rem;
+}
+
+.warden-sidebar-btn.active {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(59, 130, 246, 0.14));
+  border-color: rgba(141, 241, 222, 0.28);
+}
+
+.warden-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.warden-main > * {
+  position: relative;
+  z-index: 1;
+}
+
+.warden-hero {
+  align-items: end;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1.1fr 0.9fr;
+  padding: 28px;
+  position: relative;
+}
+
+.warden-hero-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  grid-column: 1 / -1;
+  justify-content: flex-end;
+}
+
+.warden-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.warden-hero-brand-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.warden-hero-nav-btn {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  padding: 11px 18px;
+}
+
+.warden-hero-logout {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 16px 28px rgba(220, 38, 38, 0.22);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 11px 18px;
+}
+
+.warden-eyebrow {
+  color: var(--accent-dark);
+  margin-bottom: 0;
+}
+
+.warden-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  line-height: 1.02;
+  margin: 0 0 12px;
+  max-width: 12ch;
+}
+
+.warden-subcopy {
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 58ch;
+}
+
+.warden-stat-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.warden-stat-card {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 116px;
+  padding: 18px;
+}
+
+.warden-stat-card strong {
+  font-size: 1.95rem;
+}
+
+.warden-stat-card span {
+  color: var(--muted);
+}
+
+.warden-stat-card.warm {
+  background: rgba(255, 248, 238, 0.82);
+}
+
+.warden-stat-card.green {
+  background: rgba(240, 253, 250, 0.9);
+}
+
+.warden-stat-card.soft {
+  background: rgba(239, 246, 255, 0.9);
+}
+
+.warden-add-layout,
+.warden-stats-layout {
+  align-items: stretch;
+  display: grid;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.warden-add-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.warden-stats-layout {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.warden-panel,
+.warden-form-card {
+  height: auto;
+  padding: 24px;
+}
+
+.warden-wellness-panel {
+  height: auto;
+  margin-top: -4px;
+  padding-bottom: 18px;
+  align-self: start;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.warden-wellness-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.warden-wellness-card {
+  background: linear-gradient(180deg, #f9fcfc, #eef8f8);
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+}
+
+.warden-wellness-card strong {
+  color: var(--accent-dark);
+  font-size: 1.9rem;
+}
+
+.warden-wellness-card span,
+.warden-wellness-tips p {
+  color: var(--muted);
+}
+
+.warden-wellness-tips {
+  background: linear-gradient(180deg, #f9fcfc, #eef8f8);
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 22px;
+  margin-top: 20px;
+  padding: 18px;
+}
+
+.warden-wellness-tips h3 {
+  margin: 0 0 12px;
+}
+
+.warden-wellness-tips p {
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.warden-panel-head {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.warden-panel-head h2 {
+  font-size: 1.6rem;
+  margin: 4px 0 0;
+}
+
+.warden-mode-switch {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  display: inline-flex;
+  padding: 4px;
+}
+
+.warden-mode-switch button,
+.warden-option-card,
+.warden-template-actions button,
+.warden-submit-btn,
+.warden-edit-btn,
+.warden-edit-cancel-btn,
+.warden-delete-btn {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.warden-mode-switch button {
+  background: transparent;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.warden-mode-switch button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.warden-option-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.warden-option-card {
+  align-items: flex-start;
+  background: linear-gradient(180deg, #f9fcfc, #eef8f8);
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  text-align: left;
+}
+
+.warden-option-card strong {
+  font-size: 1.05rem;
+}
+
+.warden-option-card span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.warden-option-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.warden-template-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.warden-template-card {
+  background: var(--surface-strong);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.warden-template-card img {
+  display: block;
+  height: 170px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.warden-template-card div {
+  padding: 16px 16px 0;
+}
+
+.warden-template-card span {
+  color: var(--accent-dark);
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.warden-template-card h3 {
+  margin: 0 0 6px;
+}
+
+.warden-template-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.warden-template-actions {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+}
+
+.warden-template-actions button,
+.warden-submit-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, #0f766e 100%);
+  border-radius: 14px;
+  box-shadow: 0 16px 28px rgba(15, 118, 110, 0.18);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+.warden-template-actions button:first-child {
+  background: #e5f7f5;
+  box-shadow: none;
+  color: var(--accent-dark);
+}
+
+.warden-form-pill {
+  background: var(--warm-soft);
+  border-radius: 999px;
+  color: #9a5f06;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 8px 12px;
+}
+
+.warden-edit-banner {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(14, 165, 233, 0.08));
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 18px;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+}
+
+.warden-edit-banner strong,
+.warden-edit-banner span {
+  display: block;
+}
+
+.warden-edit-banner strong {
+  color: var(--accent-dark);
+  margin-bottom: 4px;
+}
+
+.warden-edit-banner span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.warden-form-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.warden-field {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.7), rgba(204, 251, 241, 0.78));
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.warden-field span {
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.warden-form-grid input,
+.warden-form-grid select {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  box-sizing: border-box;
+  caret-color: var(--accent-dark);
+  color: var(--text);
+  min-height: 48px;
+  min-width: 0;
+  outline: none;
+  padding: 0 14px;
+  width: 100%;
+}
+
+.warden-form-grid input[type="number"] {
+  padding-right: 16px;
+}
+
+.warden-form-grid input[type="number"]::-webkit-outer-spin-button,
+.warden-form-grid input[type="number"]::-webkit-inner-spin-button {
+  appearance: auto;
+  cursor: pointer;
+  margin: 0;
+  min-height: 36px;
+  opacity: 1;
+}
+
+.warden-form-grid input:focus,
+.warden-form-grid select:focus {
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+}
+
+.warden-select-field {
+  position: relative;
+}
+
+.warden-category-select {
+  appearance: none;
+  background:
+    linear-gradient(180deg, #f3fffd, #ffffff),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%230f766e' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: 0 0, right 14px center;
+  background-repeat: no-repeat;
+  background-size: auto, 18px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  color: var(--accent-dark);
+  font-weight: 600;
+  padding-right: 44px;
+}
+
+.warden-upload-field {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.7), rgba(204, 251, 241, 0.78));
+  border: 1px solid rgba(14, 165, 233, 0.18);
+}
+
+.warden-file-input {
+  background: linear-gradient(135deg, #0f766e, #0891b2);
+  border: none;
+  border-radius: 18px;
+  color: #fff;
+  min-height: auto;
+  padding: 14px;
+}
+
+.warden-file-input::file-selector-button {
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  color: #0f766e;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  margin-right: 12px;
+  padding: 10px 14px;
+}
+
+.warden-upload-field small {
+  color: #0f5f79;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.warden-facility-panel {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.7), rgba(204, 251, 241, 0.78));
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 18px;
+  margin-top: 16px;
+  padding: 14px;
+}
+
+.warden-facility-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.warden-facility-head span {
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.warden-facility-head small {
+  color: #0f5f79;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.warden-facility-toggle {
+  appearance: none;
+  background:
+    linear-gradient(180deg, #f3fffd, #ffffff),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%230f766e' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: 0 0, right 14px center;
+  background-repeat: no-repeat;
+  background-size: auto, 18px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 16px;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  min-height: 48px;
+  overflow: hidden;
+  padding: 0 42px 0 14px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.warden-facility-toggle.open {
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+}
+
+.warden-facility-dropdown {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 8px;
+}
+
+.warden-facility-option {
+  align-items: center;
+  background: rgba(15, 118, 110, 0.05);
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.warden-facility-option:hover {
+  background: rgba(15, 118, 110, 0.06);
+}
+
+.warden-facility-option input[type="checkbox"] {
+  appearance: none;
+  background: #ffffff;
+  border: 2px solid #1e293b;
+  border-radius: 4px;
+  flex-shrink: 0;
+  height: 15px;
+  position: relative;
+  width: 15px;
+}
+
+.warden-facility-option input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+}
+
+.warden-facility-option input[type="checkbox"]:checked::after {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  content: "";
+  height: 6px;
+  left: 4px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(45deg);
+  width: 3px;
+}
+
+.warden-facility-option span {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.warden-custom-facility {
+  display: grid;
+  flex: 1 1 100%;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: 6px;
+  padding: 8px 4px 4px;
+}
+
+.warden-custom-facility input {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 12px;
+  caret-color: var(--accent-dark);
+  min-height: 44px;
+  outline: none;
+  padding: 0 12px;
+}
+
+.warden-custom-facility input:focus {
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+}
+
+.warden-custom-facility button,
+.warden-custom-chip {
+  background: linear-gradient(135deg, var(--accent) 0%, #0f766e 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.warden-custom-facility button {
+  min-height: 44px;
+  padding: 0 16px;
+}
+
+.warden-custom-facility-list {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px;
+}
+
+.warden-custom-chip {
+  padding: 8px 12px;
+}
+
+.warden-form-footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.warden-form-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.warden-form-summary span {
+  color: var(--muted);
+}
+
+.warden-form-summary strong {
+  color: var(--accent-dark);
+  font-size: 1.5rem;
+}
+
+.warden-submit-btn {
+  min-width: 170px;
+}
+
+.warden-edit-cancel-btn {
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 12px;
+  color: var(--text);
+  font-weight: 700;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.warden-footer {
+  background:
+    radial-gradient(circle at top right, rgba(255, 105, 105, 0.18), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(67, 56, 202, 0.18), transparent 24%),
+    linear-gradient(180deg, #0f1018 0%, #141725 56%, #1e1732 100%);
+  border-radius: 34px;
+  color: #f8fafc;
+  margin-top: 28px;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  z-index: 0;
+}
+
+.warden-footer::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  inset: auto 0 0 0;
+  height: 120px;
+  opacity: 0.25;
+  position: absolute;
+}
+
+.warden-footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+.warden-footer-hero {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 0.95fr 1.05fr;
+  margin-bottom: 28px;
+}
+
+.warden-footer-kicker {
+  color: #f9a8d4;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.warden-footer-copy h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.02;
+  margin: 0 0 14px;
+  max-width: 12ch;
+}
+
+.warden-footer-copy p {
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 48ch;
+}
+
+.warden-footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.warden-social-btn {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  height: 46px;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  width: 46px;
+}
+
+.warden-social-btn svg {
+  fill: none;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 18px;
+}
+
+.warden-footer-gallery {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.warden-footer-card {
+  border-radius: 24px;
+  min-height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.warden-footer-card.large {
+  grid-row: 1 / span 2;
+}
+
+.warden-footer-card img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.warden-footer-card div {
+  background: linear-gradient(180deg, transparent 25%, rgba(7, 10, 18, 0.88) 100%);
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+}
+
+.warden-footer-card span,
+.warden-footer-card strong {
+  display: block;
+}
+
+.warden-footer-card span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.warden-footer-card strong {
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+
+.warden-footer-links {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding-top: 24px;
+}
+
+.warden-footer-links h3 {
+  font-size: 1rem;
+  margin: 0 0 12px;
+}
+
+.warden-footer-links a,
+.warden-footer-newsletter p,
+.warden-footer-bottom span {
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.warden-footer-links a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.warden-footer-developer p {
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.warden-footer-newsletter p {
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.warden-footer-form {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.warden-footer-form input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  caret-color: #fff;
+  color: #fff;
+  min-height: 46px;
+  outline: none;
+  padding: 0 14px;
+}
+
+.warden-footer-form input::placeholder {
+  color: rgba(226, 232, 240, 0.5);
+}
+
+.warden-footer-form button {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  cursor: pointer;
+  align-self: center;
+  justify-self: start;
+  font: inherit;
+  font-weight: 700;
+  height: 46px;
+  line-height: 1;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+
+.warden-footer-form-message {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 12px 0 0;
+}
+
+.warden-footer-form-message.success {
+  color: #c4f6d5;
+}
+
+.warden-footer-form-message.error {
+  color: #fecaca;
+}
+
+.warden-footer-bottom {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 18px;
+}
+
+.warden-footer-bottom p {
+  font-weight: 700;
+  margin: 0;
+}
+
+.warden-table-shell {
+  overflow-x: auto;
+}
+
+.warden-hostel-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.warden-hostel-table th,
+.warden-hostel-table td {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  padding: 16px 12px;
+  text-align: left;
+}
+
+.warden-hostel-table th {
+  color: var(--muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.warden-table-hostel {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.warden-table-hostel strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.warden-table-hostel span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.warden-table-thumb {
+  align-items: center;
+  background: linear-gradient(135deg, #dbeafe, #ccfbf1);
+  border-radius: 16px;
+  display: flex;
+  height: 54px;
+  justify-content: center;
+  overflow: hidden;
+  width: 54px;
+}
+
+.warden-table-thumb img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.warden-table-thumb span {
+  color: var(--accent-dark);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.warden-table-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.warden-edit-btn {
+  background: #dbeafe;
+  border-radius: 12px;
+  color: #1d4ed8;
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.warden-booking-student {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.warden-booking-student strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.warden-booking-student-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.warden-booking-student-meta span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.warden-booking-student-meta b {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.warden-delete-btn {
+  background: #fee2e2;
+  border-radius: 12px;
+  color: #b91c1c;
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.warden-empty-panel {
+  background: linear-gradient(180deg, #fbfdff, #f3f7fb);
+  border: 1px dashed rgba(148, 163, 184, 0.3);
+  border-radius: 24px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.warden-empty-panel h3,
+.warden-empty-panel p {
+  margin: 0;
+}
+
+.warden-empty-panel p {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.warden-stats-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.warden-big-stat,
+.warden-small-stat {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+}
+
+.warden-big-stat {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(14, 165, 233, 0.08));
+  grid-column: 1 / -1;
+}
+
+.warden-big-stat span,
+.warden-small-stat span,
+.warden-insight-list li {
+  color: var(--muted);
+}
+
+.warden-big-stat strong {
+  color: var(--accent-dark);
+  font-size: 2.2rem;
+}
+
+.warden-small-stat strong {
+  font-size: 1.5rem;
+}
+
+.warden-insight-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding-left: 18px;
+}
+
+.warden-sidebar-btn:hover,
+.warden-option-card:hover,
+.warden-template-actions button:hover,
+.warden-submit-btn:hover,
+.warden-edit-btn:hover,
+.warden-edit-cancel-btn:hover,
+.warden-delete-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1180px) {
+  .warden-dashboard,
+  .warden-add-layout,
+  .warden-stats-layout,
+  .warden-hero,
+  .warden-footer-hero,
+  .warden-footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .warden-sidebar {
+    min-height: auto;
+    position: static;
+  }
+
+  .warden-edit-banner,
+  .warden-form-footer,
+  .warden-table-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
+  .warden-dashboard {
+    padding: 16px;
+  }
+
+  .warden-hero-actions {
+    justify-content: flex-start;
+  }
+
+  .warden-stat-grid,
+  .warden-option-grid,
+  .warden-form-grid,
+  .warden-stats-grid,
+  .warden-wellness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .warden-panel-head,
+  .warden-form-footer,
+  .warden-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .warden-mode-switch {
+    width: 100%;
+  }
+
+  .warden-mode-switch button {
+    flex: 1;
+  }
+
+  .warden-template-actions {
+    flex-direction: column;
+  }
+
+  .warden-hero-logout {
+    position: static;
+  }
+
+  .warden-footer-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .warden-footer-card.large {
+    grid-row: auto;
+  }
+
+  .warden-footer-form {
+    grid-template-columns: 1fr;
+  }
+}
