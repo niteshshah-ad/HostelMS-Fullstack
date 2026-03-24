@@ -1,5 +1,10 @@
 from app.db.database import db
-from app.utils.security import hash_password, verify_password, create_access_token
+from app.utils.security import (
+    hash_password,
+    verify_password,
+    create_access_token,
+    password_needs_rehash,
+)
 from datetime import datetime
 import re
 
@@ -50,13 +55,19 @@ def login_user(email: str, password: str):
     if not verify_password(password, user["password"]):
         return None
 
+    if password_needs_rehash(user["password"]):
+        db.users.update_one(
+            {"_id": user["_id"]},
+            {"$set": {"password": hash_password(password), "updated_at": datetime.utcnow()}},
+        )
+
     token = create_access_token({"sub": user["email"]})
 
     return {
         "access_token": token,
         "token_type": "bearer",
-        "role": user["role"],   # ✅ IMPORTANT
-        "email": user["email"]  # optional but useful
+        "role": user["role"],   
+        "email": user["email"]  
     }
 
 
