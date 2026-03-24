@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from app.db.database import db
-from fastapi import Depends, HTTPException
 import os
 
 load_dotenv()
@@ -53,10 +52,16 @@ def verify_password(plain_password, hashed_password):
         if "72 bytes" not in str(error) or not hashed_password.startswith("$2"):
             raise
 
+        # Legacy bcrypt hashes only use the first 72 password bytes.
         return bcrypt.checkpw(
             plain_password.encode("utf-8")[:72],
             hashed_password.encode("utf-8"),
         )
+
+
+def validate_password_bytes(password: str) -> None:
+    return None
+
 
 def password_needs_rehash(hashed_password: str) -> bool:
     return pwd_context.needs_update(hashed_password)
@@ -85,5 +90,3 @@ def require_roles(*roles: str):
             raise HTTPException(status_code=403, detail="Access forbidden")
         return current_user
     return role_checker
-
-
