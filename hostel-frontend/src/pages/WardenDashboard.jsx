@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import MachanLogo from "../components/MachanLogo";
 import ThemeToggle from "../components/ThemeToggle";
@@ -229,6 +230,7 @@ function SocialIcon({ type }) {
 }
 
 function WardenDashboard() {
+  const navigate = useNavigate();
   const [active, setActive] = useState("add");
   const [hostels, setHostels] = useState([]);
   const [bookings, setBookings] = useState([]);
@@ -619,7 +621,7 @@ function WardenDashboard() {
         <section className="warden-hero">
           <div className="warden-hero-actions">
             <ThemeToggle />
-            <button className="warden-hero-nav-btn" type="button" onClick={() => { window.location.href = "/student-dashboard"; }}>
+            <button className="warden-hero-nav-btn" type="button" onClick={() => navigate("/student-dashboard")}>
               Home
             </button>
             <button className="warden-hero-nav-btn" type="button" onClick={scrollToWellness}>
