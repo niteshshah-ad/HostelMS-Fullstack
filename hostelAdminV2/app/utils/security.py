@@ -58,6 +58,9 @@ def verify_password(plain_password, hashed_password):
             hashed_password.encode("utf-8"),
         )
 
+def password_needs_rehash(hashed_password: str) -> bool:
+    return pwd_context.needs_update(hashed_password)
+
 
 def create_access_token(data: dict):
     to_encode = data.copy()
