@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import MachanLogo from "../components/MachanLogo";
 import ThemeToggle from "../components/ThemeToggle";
@@ -9,6 +9,7 @@ const STUDENT_CURRENT_AREA_STORAGE_KEY = "student_current_area";
 const STUDENT_CURRENT_AREA_SESSION_KEY = "student_current_area_session";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [currentArea, setCurrentArea] = useState("");
@@ -38,9 +39,9 @@ function LoginPage() {
             sessionStorage.setItem(STUDENT_CURRENT_AREA_SESSION_KEY, currentArea.trim());
           }
         }
-        if (data.role === "student") window.location.href = "/student-dashboard";
-        if (data.role === "warden") window.location.href = "/warden-dashboard";
-        if (data.role === "admin") window.location.href = "/admin-dashboard";
+        if (data.role === "student") navigate("/student-dashboard");
+        if (data.role === "warden") navigate("/warden-dashboard");
+        if (data.role === "admin") navigate("/admin-dashboard");
       } else {
         setMessage(data.detail || "Login failed");
       }
