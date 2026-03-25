@@ -2,42 +2,33 @@
   align-items: center;
   color: inherit;
   display: inline-flex;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
   text-decoration: none;
 }
 
-.machan-logo-mark {
+.machan-logo-badge {
   align-items: center;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.28), transparent 42%),
-    linear-gradient(145deg, #f48a4f 0%, #cc5d2c 45%, #111827 100%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 22px;
-  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.22);
+    radial-gradient(circle at top, rgba(255, 198, 110, 0.26), rgba(8, 15, 28, 0.96) 62%),
+    #08101d;
+  border: 2px solid rgba(255, 183, 77, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
   display: inline-flex;
-  height: 52px;
+  flex-shrink: 0;
+  height: 104px;
   justify-content: center;
-  position: relative;
-  width: 52px;
+  overflow: hidden;
+  width: 104px;
 }
 
-.machan-logo-mark::after {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 18px;
-  content: "";
-  inset: 5px;
-  position: absolute;
-}
-
-.machan-logo-mark-core {
-  color: #fffaf5;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1;
-  position: relative;
-  z-index: 1;
+.machan-logo-image {
+  display: block;
+  height: 132%;
+  object-fit: contain;
+  transform: translateY(6%);
+  width: 132%;
 }
 
 .machan-logo-copy {
@@ -46,20 +37,13 @@
   min-width: 0;
 }
 
-.machan-logo-copy strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.55rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1;
-}
-
 .machan-logo-copy small {
-  color: rgba(148, 163, 184, 0.92);
-  font-size: 0.74rem;
+  color: rgba(148, 163, 184, 0.94);
+  display: inline-block;
+  font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  margin-top: 6px;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -67,14 +51,13 @@
   gap: 10px;
 }
 
-.machan-logo.compact .machan-logo-mark {
-  border-radius: 18px;
-  height: 46px;
-  width: 46px;
+.machan-logo.compact .machan-logo-badge {
+  height: 86px;
+  width: 86px;
 }
 
-.machan-logo.compact .machan-logo-copy strong {
-  font-size: 1.35rem;
+.machan-logo.compact .machan-logo-copy small {
+  font-size: 1rem;
 }
 
 @media (max-width: 640px) {
@@ -82,12 +65,12 @@
     gap: 10px;
   }
 
-  .machan-logo-mark {
-    height: 46px;
-    width: 46px;
+  .machan-logo-badge {
+    height: 80px;
+    width: 80px;
   }
 
-  .machan-logo-copy strong {
-    font-size: 1.35rem;
+  .machan-logo-copy small {
+    font-size: 0.92rem;
   }
 }
