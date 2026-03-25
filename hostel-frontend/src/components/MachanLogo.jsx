@@ -6,13 +6,14 @@ function MachanLogo({ className = "", compact = false, subtitle = "" }) {
 
   return (
     <Link className={classes} to="/">
-      <span className="machan-logo-mark" aria-hidden="true">
-        <span className="machan-logo-mark-core">M</span>
+      <span className="machan-logo-badge" aria-hidden="true">
+        <img className="machan-logo-image" src="/Machan_logo.png" alt="" />
       </span>
-      <span className="machan-logo-copy">
-        <strong>Machan</strong>
-        {subtitle ? <small>{subtitle}</small> : null}
-      </span>
+      {subtitle ? (
+        <span className="machan-logo-copy">
+          <small>{subtitle}</small>
+        </span>
+      ) : null}
     </Link>
   );
 }
